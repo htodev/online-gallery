@@ -1,0 +1,4 @@
+Django==4.0.6
+Django==22.1
+Pillow==9.2.0
+django-bootstrap4==22.1

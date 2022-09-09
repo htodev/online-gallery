@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    {% include 'common/header.html' %}
+
+    <div class="container">
+        <div class="row" style="margin-bottom:5%">
+             {% for category in categories  %}
+            <div class="col-lg-4">
+                 <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                  <h5>{{category.category_name}}</h5>
+                  <a class="btn btn-primary" href="{% url 'category' category.id %}">See details</a>
+              </div>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include 'common/footer.html' %}
+
+</body>
+</html>
