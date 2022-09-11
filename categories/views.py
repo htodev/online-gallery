@@ -4,8 +4,6 @@ from django.shortcuts import render
 
 
 def list_categories(request):
-    """It retrieves doctors names from DoctorProfile records. """
-
     categories = Category.objects.all()
     context = {
         'categories': categories,

@@ -12,7 +12,7 @@
         <div class="row" style="margin-bottom:5%">
              {% for category in categories  %}
             <div class="col-lg-4">
-                 <div class="card" style="width: 18rem;">
+                <div class="card my-2">
               <div class="card-body">
                   <h5>{{category.category_name}}</h5>
                   <a class="btn btn-primary" href="{% url 'category' category.id %}">See details</a>

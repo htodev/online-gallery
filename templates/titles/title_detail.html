@@ -11,19 +11,16 @@
 
     <div class="container">
         <div class="row" style="margin-bottom:5%">
-             {% for title in titles  %}
-            <div class="col-lg-4">
-                 <div class="card" style="width: 18rem;">
-              <div class="card-body">
-                  <h5>{{title.title_name}}</h5>
-                  <a class="btn btn-primary" href="#">View  Gallery</a>
-              </div>
-            </div>
-            </div>
-            {% endfor %}
+             {% for photo in photos %}
+             <div class="col-md-4">
+                 <div class="card my-2">
+                     <img class="image-thumbail" src="{{ photo.picture.url }}" alt="Card image cap">
+                     <a href="#" class="btn btn-outline-dark btn-sm m-1">View</a>
+                 </div>
+             </div>
         </div>
+            {% endfor %}
     </div>
-
     {% include 'common/footer.html' %}
 
 </body>

@@ -4,8 +4,6 @@ from titles.models import Title
 
 
 class Photo(models.Model):
-    name = models.CharField(max_length=70)
+    picture = models.ImageField(upload_to='gallery',blank=True)
     title = models.ForeignKey(Title, on_delete=models.CASCADE, null=True, blank=True)
 
-    def __str__(self):
-        return self.name
