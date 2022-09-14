@@ -13,11 +13,11 @@
              {% for category in categories  %}
             <div class="col-lg-4">
                 <div class="card my-2">
-              <div class="card-body">
-                  <h5>{{category.category_name}}</h5>
-                  <a class="btn btn-primary" href="{% url 'category' category.id %}">See details</a>
-              </div>
-            </div>
+                    <div class="card-body">
+                        <h5>{{category.category_name}}</h5>
+                        <a class="btn btn-dark btn-sm m-1" href="{% url 'category' category.id %}">See details</a>
+                    </div>
+                </div>
             </div>
             {% endfor %}
         </div>
