@@ -9,20 +9,21 @@
     {% include 'common/header.html' %}
 
     <div class="container">
-        <div class="row" style="margin-bottom:5%">
-             {% for category in categories  %}
-            <div class="col-lg-4">
-                <div class="card my-2">
-                    <div class="card-body">
-                        <h5>{{category.category_name}}</h5>
-                        <a class="btn btn-dark btn-sm m-1" href="{% url 'category' category.id %}">See details</a>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                {% for category in categories  %}
+                    <div class="col-md-4">
+                        <div class="card my-2">
+                            <h class="text-center">{{category.category_name}}</h>
+                            <a class="btn btn-dark btn-sm m-1" href="{% url 'category' category.id %}">See details</a>
+                        </div>
                     </div>
+                {% endfor %}
                 </div>
             </div>
-            {% endfor %}
         </div>
     </div>
-
     {% include 'common/footer.html' %}
 
 </body>

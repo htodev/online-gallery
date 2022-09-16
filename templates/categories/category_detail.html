@@ -11,19 +11,20 @@
 
     <div class="container">
         <div class="row" style="margin-bottom:5%">
-             {% for title in titles  %}
-            <div class="col-lg-4">
-                 <div class="card my-2">
-              <div class="card-body">
-                  <h5>{{title.title_name}}</h5>
-                  <a class="btn btn-dark btn-sm m-1" href="{% url 'title-photos' title.id %}">View  Gallery</a>
-              </div>
+             <div class="col-md-9">
+                 <div class="row">
+                 {% for title in titles  %}
+                     <div class="col-md-4">
+                        <div class="card my-2">
+                            <h class="text-center">{{title.title_name}}</h>
+                            <a class="btn btn-dark btn-sm m-1" href="{% url 'title-photos' title.id %}">View  Gallery</a>
+                        </div>
+                    </div>
+                 {% endfor %}
+                </div>
             </div>
-            </div>
-            {% endfor %}
         </div>
     </div>
-
     {% include 'common/footer.html' %}
 
 </body>
