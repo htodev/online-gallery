@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+
 
 from photos.models import Photo
 from titles.models import Title
@@ -7,12 +8,22 @@ from titles.models import Title
 def detail_title(request, pk):
     title = Title.objects.get(id=pk)
     photos = title.photo_set.all()
-    contex = {'photos': photos}
-    return render(request, 'titles/title_detail.html', contex)
+    context = {'photos': photos}
+    return render(request, 'titles/title_detail.html', context)
+
+
 
 
 def photo_detail(request, pk):
-    photo = Photo.objects.get(id=pk)
-
-    contex = {'photo': photo}
-    return render(request, 'titles/photo_detail.html', contex)
+    photo = get_object_or_404(Photo, pk=pk)
+    title = photo.title
+    photos = title.photo_set.all()
+    photo_index = list(photos).index(photo)
+    previous_photo = photos[photo_index - 1] if photo_index > 0 else None
+    next_photo = photos[photo_index + 1] if photo_index < len(photos) - 1 else None
+    context = {
+       'photo': photo,
+       'previous_photo': previous_photo,
+       'next_photo': next_photo,
+    }
+    return render(request, 'titles/photo_detail.html', context)

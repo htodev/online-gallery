@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+   <meta charset="UTF-8">
+   <title>Title</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
-    {% include 'common/header.html' %}
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col">
+{% include 'common/header.html' %}
 
-                <div style="height: 90vh;">
-                    <img class="mx-auto d-block" style="max-width: 100%; max-height: 100%;" src="{{ photo.picture.url }}">
-                </div>
 
-            </div>
-        </div>
-    </div>
+<div class="container">
+   <div class="row justify-content-center">
+       <div class="col">
+               <div class="row">
+                   <div class="col text-right">
+                       {% if previous_photo %}
+                           <a class="btn btn-primary" href="{% url 'photo' pk=previous_photo.pk %}">&lt;</a>
+                       {% endif %}
+                   </div>
+                   <div style="height: 90vh;">
+                       <img class="mx-auto d-block" style="max-width: 100%; max-height: 100%;" src="{{ photo.picture.url }}">
+                   </div>
+                   <div class="col">
+                       {% if next_photo %}
+                           <a class="btn btn-primary" href="{% url 'photo' pk=next_photo.pk %}">&gt;</a>
+                       {% endif %}
+                   </div>
+               </div>
+
+
+       </div>
+   </div>
+</div>
+
+
 </body>
+</html>
