@@ -10,6 +10,9 @@
 
     <div class="container">
         <div class="row justify-content-center">
+            <div class="col-md-1"> <!-- Wrap the button inside a div with col-md-9 -->
+                <a class="btn btn-dark m-1" href="{% url 'category' title_id %}">Back</a>
+            </div>
             <div class="col-md-9">
                 <div class="row justify-content-center">
                     {% for photo in photos %}
